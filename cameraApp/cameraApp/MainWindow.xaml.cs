@@ -144,6 +144,54 @@ namespace cameraApp
             req.Abort();
             resp.Dispose();
         }
+
+        private void tilt_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?tilt=" + tilt.Value);
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+        }
+
+        private void pan_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?pan=" + pan.Value);
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+        }
+
+        private void zoom1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?zoom=" + zoom1.Value);
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+        }
+
+        private void focus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?focus=" + focus.Value);
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+        }
   
     }
 }
