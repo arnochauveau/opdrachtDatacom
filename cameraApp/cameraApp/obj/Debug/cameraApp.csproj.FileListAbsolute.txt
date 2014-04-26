@@ -1,1 +1,13 @@
 C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.exe.config
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.exe
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.pdb
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csprojResolveAssemblyReference.cache
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\MainWindow.baml
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\MainWindow.g.cs
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\App.g.cs
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp_MarkupCompile.cache
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.g.resources
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.Properties.Resources.resources
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csproj.GenerateResource.Cache
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.exe
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.pdb
