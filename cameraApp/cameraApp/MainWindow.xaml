@@ -11,9 +11,9 @@
         <Label Content="zoom" HorizontalAlignment="Left" Margin="349,98,0,0" VerticalAlignment="Top" Width="159"/>
         <Slider HorizontalAlignment="Left" Margin="349,171,0,0" VerticalAlignment="Top" Width="159"/>
         <Label Content="focus" HorizontalAlignment="Left" Margin="349,147,0,0" VerticalAlignment="Top" Width="159"/>
-        <Button Content="^" HorizontalAlignment="Left" Margin="413,203,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568"/>
-        <Button Content="v" HorizontalAlignment="Left" Margin="413,256,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568"/>
-        <Button Content="&lt;" HorizontalAlignment="Left" Margin="388,228,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568"/>
+        <Button Content="^" HorizontalAlignment="Left" Margin="413,203,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568" Click="Button_Click_2"/>
+        <Button Content="v" HorizontalAlignment="Left" Margin="413,256,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.5,0.5" Click="Button_Click_3"/>
+        <Button Content="&lt;" HorizontalAlignment="Left" Margin="388,228,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568" Click="Button_Click_1"/>
         <Button Content="&gt;" HorizontalAlignment="Left" Margin="438,229,0,0" VerticalAlignment="Top" Width="20" Height="20" RenderTransformOrigin="0.365,0.568" Click="Button_Click"/>
         <Image x:Name="img" HorizontalAlignment="Left" Height="266" Margin="25,16,0,0" VerticalAlignment="Top" Width="267" Source="placeholder1.jpg"/>
 

@@ -54,37 +54,70 @@ namespace cameraApp
             req.Credentials = new NetworkCredential("student", "nmct");
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
-            //using (BinaryReader reader = new BinaryReader(resp.GetResponseStream()))
-            //{
-            //    Byte[] arr = reader.ReadBytes(704 * 576 * 24);
-            //    using (MemoryStream ms = new MemoryStream(arr))
-            //    {
-
-
-            //    }
-
-            //}
+         
 
             Stream receiveStream = resp.GetResponseStream();
-            //Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
-            // Pipes the stream to a higher level stream reader with the required encoding format. 
-
-            //System.Drawing.Image.FromStream(receiveStream);
+         
             BitmapImage im = new BitmapImage();
             im.BeginInit();
             im.StreamSource = receiveStream;
             im.EndInit();
 
             img.Source = im;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            tmr.Stop();
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?rpan=10");
+           
+                HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?move=right");
+
+                req.Credentials = new NetworkCredential("student", "nmct");
+                req.GetResponse();
+                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+                req.Abort();
+                resp.Dispose();
+        
+           
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?move=left");
+          
             req.Credentials = new NetworkCredential("student", "nmct");
+            
+            req.GetResponse();
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            tmr.Start();
+            req.Abort();
+            resp.Dispose();
+        
+           
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?move=up");
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?move=down");
+
+            req.Credentials = new NetworkCredential("student", "nmct");
+
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
         }
   
     }
