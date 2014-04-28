@@ -51,11 +51,21 @@ namespace cameraApp
             verbinding.StopBits = StopBits.One;
             verbinding.Handshake = Handshake.None;
 
-            verbinding.Open();
             if (verbinding.IsOpen)
             {
                 MessageBox.Show("Connectie reeds open");
             }
+            try
+            {
+                verbinding.Open();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("ERRORS BIJ COM");
+            }
+           
+          
 
             verbinding.DataReceived += verbinding_DataReceived;
         }
