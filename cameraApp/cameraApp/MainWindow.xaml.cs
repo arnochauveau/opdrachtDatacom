@@ -63,17 +63,20 @@ namespace cameraApp
             {
 
                 Console.WriteLine("ERRORS BIJ COM");
-            }
-           
-          
+            }          
 
             verbinding.DataReceived += verbinding_DataReceived;
         }
 
         void verbinding_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string test = verbinding.ReadExisting();
-            Console.WriteLine(test);
+            string command = verbinding.ReadExisting();
+            Console.WriteLine(command);
+            if (command == "buttonpress")
+            {
+                MessageBox.Show("Somebody is standing in front of the door. Would you like to let him in?", "DING DONG", MessageBoxButton.YesNo, MessageBoxImage.None);
+            }
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
