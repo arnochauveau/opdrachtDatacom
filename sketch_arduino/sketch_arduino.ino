@@ -23,6 +23,8 @@ int lcdd5 = 6;
 int lcdd6 = 5;
 int lcdd7 = 4;
 
+boolean pressed = false;
+
 LiquidCrystal lcd(lcdRS,lcdRW,lcdEN,lcdd4,lcdd5,lcdd6,lcdd7);
 
 void setup()
@@ -32,7 +34,9 @@ void setup()
   
   pinMode(buttonpin, INPUT_PULLUP); //declareren van de buttonpin als input
   lcd.clear();
-  
+  lcd.print("Temperature: 30C");
+  lcd.setCursor(0,1);
+  lcd.print("Humidity: 30%");
  
   
   Serial.begin(9600);
@@ -47,9 +51,10 @@ void loop()
 {
   val = digitalRead(buttonpin); //value van buttonpin in var steken
   // Serial.print(val);
-  if(val == LOW){
+  if(val == LOW && pressed==false){
     Serial.print("buttonpress");
     buttonpressed();
+    pressed=true;
   }
 }
 void buttonpressed(){
@@ -57,6 +62,38 @@ lcd.clear();
 lcd.print("Background check");
 lcd.setCursor(0,1);
 lcd.print("By NSA busy...");
+delay(2000);
+lcd.clear();
+lcd.print("looking up ");
+lcd.setCursor(0,1);
+lcd.print("Dental records..");
+delay(2000);
+lcd.clear();
+lcd.print("Fingerprint scan");
+lcd.setCursor(0,1);
+lcd.print("=");
+delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");delay(250);
+lcd.print("=");
+lcd.clear();
+lcd.print("Completed!");
+lcd.setCursor(0,1);
+lcd.print("awaiting answer..");
+delay(2000);
+
 }
 
 
