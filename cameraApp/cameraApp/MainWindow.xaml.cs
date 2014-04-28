@@ -39,6 +39,7 @@ namespace cameraApp
         public MainWindow()
         {
             InitializeComponent();
+            InitSerial();
         }
 
         public void InitSerial()
