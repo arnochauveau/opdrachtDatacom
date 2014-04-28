@@ -41,6 +41,30 @@ namespace cameraApp
             InitializeComponent();
         }
 
+        public void InitSerial()
+        {
+            verbinding.PortName = "COM3";
+            verbinding.BaudRate = 2400;
+            verbinding.DataBits = 8;
+            verbinding.Parity = Parity.None;
+            verbinding.StopBits = StopBits.One;
+            verbinding.Handshake = Handshake.None;
+
+            verbinding.Open();
+            if (verbinding.IsOpen)
+            {
+                MessageBox.Show("Connectie reeds open");
+            }
+
+            verbinding.DataReceived += verbinding_DataReceived;
+        }
+
+        void verbinding_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string test = verbinding.ReadExisting();
+            Console.WriteLine(test);
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             initTimer();
