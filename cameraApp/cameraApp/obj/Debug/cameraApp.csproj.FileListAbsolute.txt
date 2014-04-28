@@ -24,3 +24,4 @@ C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\De
 C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csproj.GenerateResource.Cache
 C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.exe
 C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.pdb
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.exe.config

@@ -30,6 +30,8 @@ namespace cameraApp
         private Double[] arrpos = new Double[4];
         private bool isBussy = false;
 
+        //tetjes
+
 
         public MainWindow()
         {
