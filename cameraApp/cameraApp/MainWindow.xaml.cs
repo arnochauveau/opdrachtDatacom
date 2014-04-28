@@ -186,24 +186,24 @@ namespace cameraApp
 
         private void tilt_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?tilt=" + tilt.Value);
-            req.Credentials = new NetworkCredential("student", "nmct");
-            req.GetResponse();
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            req.Abort();
-            resp.Dispose();
-            isBussy = true;
+            //HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?tilt=" + tilt.Value);
+            //req.Credentials = new NetworkCredential("student", "nmct");
+            //req.GetResponse();
+            //HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            //req.Abort();
+            //resp.Dispose();
+            //isBussy = true;
         }
 
         private void pan_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?pan=" + pan.Value);
-            req.Credentials = new NetworkCredential("student", "nmct");
-            req.GetResponse();
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            req.Abort();
-            resp.Dispose();
-            isBussy = true;
+            //HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?pan=" + pan.Value);
+            //req.Credentials = new NetworkCredential("student", "nmct");
+            //req.GetResponse();
+            //HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            //req.Abort();
+            //resp.Dispose();
+            //isBussy = true;
         }
 
         private void zoom1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
