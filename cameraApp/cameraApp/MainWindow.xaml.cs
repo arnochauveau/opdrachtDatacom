@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Drawing;
 using System.Windows.Threading;
 using System.Globalization;
+using System.IO.Ports;
 
 namespace cameraApp
 {
@@ -27,10 +28,12 @@ namespace cameraApp
     {
         private DispatcherTimer tmr = new DispatcherTimer();
         private DispatcherTimer tmrInactivity = new DispatcherTimer();
+        private DispatcherTimer tmrMove = new DispatcherTimer();
+
+        public static SerialPort verbinding = new SerialPort();
+
         private Double[] arrpos = new Double[4];
         private bool isBussy = false;
-
-        //tetjes
 
 
         public MainWindow()
@@ -49,26 +52,41 @@ namespace cameraApp
             tmr.Tick += tmr_Tick;
             tmr.Start();
 
-            tmrInactivity.Interval = TimeSpan.FromMinutes(5);
+            tmrInactivity.Interval = TimeSpan.FromSeconds(5);
             tmrInactivity.Tick += tmrInactivity_Tick;
             tmrInactivity.Start();
+
+            tmrMove.Interval = TimeSpan.FromSeconds(1);
+            tmrMove.Tick += tmrMove_Tick;
+        }
+
+        void tmrMove_Tick(object sender, EventArgs e)
+        {
+            autoWatch();
         }
 
         void tmrInactivity_Tick(object sender, EventArgs e)
         {
             if (isBussy)
             {
-                //start auto watch
+                tmrMove.Stop();
             }
             else
             {
-                //stop auto watch
+                tmrMove.Start();
             }
+            isBussy = false;
         }
 
         void tmr_Tick(object sender, EventArgs e)
         {
             updateImg();
+
+            //seriele poort
+            byte[] arrOutput = new byte[20];
+            verbinding.Read(arrOutput, 0, 20);
+            string str = System.Text.Encoding.Default.GetString(arrOutput);
+            Console.WriteLine(str);
         }
 
         private void updateImg()
@@ -98,7 +116,7 @@ namespace cameraApp
             for (int i = 0; i < 4; i++)
             {
                 String[] arrTest = readStream.ReadLine().Split('=');
-
+                Console.WriteLine(arrTest[0] + ": " + arrTest[1]);
                 //arrpos[i] = Convert.ToDouble(readStream.ReadLine().Split('=')[1]);
                 CultureInfo ciClone = null;
                 double value = 0;
@@ -108,7 +126,7 @@ namespace cameraApp
                     ciClone.NumberFormat.NumberDecimalSeparator = ",";
                     ciClone.NumberFormat.NumberGroupSeparator = ".";
                     value = Double.Parse(arrTest[1], ciClone);
-                    Console.WriteLine("Waarde van " + arrTest[0] + " is: " + value);
+                    //Console.WriteLine("Waarde van " + arrTest[0] + " is: " + value);
                     arrpos[i] = value;
                 }
                 catch (Exception e)
@@ -130,13 +148,19 @@ namespace cameraApp
 
         private void autoWatch()
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?ContinuousPan=true");
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?tilt=340");
             req.Credentials = new NetworkCredential("student", "nmct");
             req.GetResponse();
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             req.Abort();
             resp.Dispose();
 
+            HttpWebRequest req2 = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?move=right");
+            req2.Credentials = new NetworkCredential("student", "nmct");
+            req2.GetResponse();
+            HttpWebResponse resp2 = (HttpWebResponse)req2.GetResponse();
+            req2.Abort();
+            resp2.Dispose();
 
         }
 
@@ -216,7 +240,7 @@ namespace cameraApp
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             req.Abort();
             resp.Dispose();
-            isBussy = true;
+            //isBussy = true;
         }
 
         private void focus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -227,7 +251,7 @@ namespace cameraApp
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             req.Abort();
             resp.Dispose();
-            isBussy = true;
+            //isBussy = true;
         }
 
         private void chkAutoFocus_Checked(object sender, RoutedEventArgs e)
@@ -240,19 +264,19 @@ namespace cameraApp
             req.Abort();
             resp.Dispose();
             focus.IsEnabled = false;
-            isBussy = true;
+            //isBussy = true;
         }
 
         private void chkAutoFocus_Unchecked(object sender, RoutedEventArgs e)
         {
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?autofocus=of");
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?autofocus=off");
             req.Credentials = new NetworkCredential("student", "nmct");
             req.GetResponse();
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             req.Abort();
             resp.Dispose();
             focus.IsEnabled = true;
-            isBussy = true;
+            //isBussy = true;
         }
 
         #endregion

@@ -25,3 +25,15 @@ C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\De
 C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.exe
 C:\Users\Yoran.Yoran\Documents\GitHub\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.pdb
 C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.exe.config
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.exe
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\bin\Debug\cameraApp.pdb
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csprojResolveAssemblyReference.cache
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\MainWindow.baml
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\MainWindow.g.cs
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\App.g.cs
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp_MarkupCompile.cache
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.g.resources
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.Properties.Resources.resources
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csproj.GenerateResource.Cache
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.exe
+C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.pdb
