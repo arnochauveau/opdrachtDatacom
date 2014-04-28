@@ -27,17 +27,13 @@ LiquidCrystal lcd(lcdRS,lcdRW,lcdEN,lcdd4,lcdd5,lcdd6,lcdd7);
 
 void setup()
 {
+  
   lcd.begin(16,2);
+  
   pinMode(buttonpin, INPUT_PULLUP); //declareren van de buttonpin als input
   lcd.clear();
-  lcd.print("Hello World");
-  //pinMode(lcdRS,OUTPUT);
-  //pinMode(lcdRW,OUTPUT);
-  //pinMode(lcdEN,OUTPUT);
-  //pinMode(lcdd4,OUTPUT);
-  //pinMode(lcdd5,OUTPUT);
-  //pinMode(lcdd6,OUTPUT);
-  //pinMode(lcdd7,OUTPUT);
+  
+ 
   
   Serial.begin(9600);
   
@@ -53,9 +49,17 @@ void loop()
   // Serial.print(val);
   if(val == LOW){
     Serial.print("buttonpress");
-  
+    buttonpressed();
   }
 }
+void buttonpressed(){
+lcd.clear();
+lcd.print("Background check");
+lcd.setCursor(0,1);
+lcd.print("By NSA busy...");
+}
+
+
 
 
 
