@@ -44,8 +44,8 @@ namespace cameraApp
 
         public void InitSerial()
         {
-            verbinding.PortName = "COM3";
-            verbinding.BaudRate = 2400;
+            verbinding.PortName = "COM4";
+            verbinding.BaudRate = 9600;
             verbinding.DataBits = 8;
             verbinding.Parity = Parity.None;
             verbinding.StopBits = StopBits.One;
