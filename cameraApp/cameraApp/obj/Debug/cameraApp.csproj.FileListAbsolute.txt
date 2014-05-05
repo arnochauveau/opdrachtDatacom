@@ -37,3 +37,4 @@ C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cam
 C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.csproj.GenerateResource.Cache
 C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.exe
 C:\Users\Yoran.Yoran\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp.pdb
+C:\Users\arno\Documents\opdrachtDatacom\cameraApp\cameraApp\obj\Debug\cameraApp_Content.g.cs

@@ -77,10 +77,32 @@ namespace cameraApp
         {
             string command = verbinding.ReadExisting();
             Console.WriteLine(command);
-            //if (command == "buttonpress")
-            //{
-                MessageBox.Show("Somebody is standing in front of the door. Would you like to let him in?", "DING DONG", MessageBoxButton.YesNo, MessageBoxImage.None);
-            //}
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
+            player.SoundLocation = "bel.wav";
+            
+            player.Play();
+            isBussy = true;
+
+        //http://172.23.49.1/axis-cgi/com/ptz.cgi?gotoserverpresetname=home
+
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?gotoserverpresetname=home");
+            req.Credentials = new NetworkCredential("student", "nmct");
+            req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            req.Abort();
+            resp.Dispose();
+
+            MessageBoxResult res = MessageBox.Show("Somebody is standing in front of the door. Would you like to let him in?", "DING DONG", MessageBoxButton.YesNo, MessageBoxImage.None);
+            if (res == MessageBoxResult.Yes)
+            {
+                verbinding.WriteLine("y");
+                
+            }
+            if (res == MessageBoxResult.No)
+            {
+                verbinding.WriteLine("n");
+            }
 
         }
 
@@ -109,16 +131,9 @@ namespace cameraApp
             leesSerial.WorkerSupportsCancellation = true;
             leesSerial.WorkerReportsProgress = true;
             leesSerial.DoWork += leesSerial_DoWork;
-            //leesSerial.RunWorkerAsync();
+            
         }
 
-        //void tmrser_Tick(object sender, EventArgs e)
-        //{
-        //    byte[] arrOutput = new byte[20];
-        //    verbinding.Read(arrOutput, 0, 20);
-        //    string str = System.Text.Encoding.Default.GetString(arrOutput);
-        //    Console.WriteLine(str);
-        //}
 
         void leesSerial_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -215,6 +230,10 @@ namespace cameraApp
 
         private void autoWatch()
         {
+            if (chkAutoWatch.IsChecked == true)
+            {
+                
+           
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://172.23.49.1/axis-cgi/com/ptz.cgi?tilt=340");
             req.Credentials = new NetworkCredential("student", "nmct");
             req.GetResponse();
@@ -228,7 +247,7 @@ namespace cameraApp
             HttpWebResponse resp2 = (HttpWebResponse)req2.GetResponse();
             req2.Abort();
             resp2.Dispose();
-
+            }
         }
           
             

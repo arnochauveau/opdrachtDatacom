@@ -10,8 +10,15 @@
 // d7 = 4          // 14
 
 #include <LiquidCrystal.h>
+
+
+
+
 int buttonpin = 12; //kies de pin voor de BUTTON
 int val = 0; //variable voor status buttonpin
+
+String content = "";
+char character;
 
 int lcdRS = 10;
 int lcdRW = 9;
@@ -52,44 +59,58 @@ void loop()
   val = digitalRead(buttonpin); //value van buttonpin in var steken
   // Serial.print(val);
   if(val == LOW && pressed==false){
-    Serial.print("buttonpress");
+    Serial.print("b");
     buttonpressed();
     pressed=true;
   }
+  
+ 
+
+  while(Serial.available()) {
+      character = Serial.read();
+      //content.concat(character);
+      //Serial.write(character);
+  }
+
+
+  
+    if (character == 'y')
+    {
+      
+      lcd.clear();
+      lcd.print("ACCESS GRANTED!");
+      delay(2000);
+      
+      pressed = false;
+       lcd.clear();
+  lcd.print("Temperature: 30C");
+  lcd.setCursor(0,1);
+  lcd.print("Humidity: 30%");
+      
+      
+    }
+      if (character == 'n')
+    {
+      
+      lcd.clear();
+      lcd.print("ACCESS DENIED!");
+      delay(2000);
+      
+      pressed = false;
+       lcd.clear();
+  lcd.print("Temperature: 30C");
+  lcd.setCursor(0,1);
+  lcd.print("Humidity: 30%");
+    }
+    
+    
+  
 }
 void buttonpressed(){
+
 lcd.clear();
-lcd.print("Background check");
-lcd.setCursor(0,1);
-lcd.print("By NSA busy...");
-delay(2000);
-lcd.clear();
-lcd.print("looking up ");
-lcd.setCursor(0,1);
-lcd.print("Dental records..");
-delay(2000);
-lcd.clear();
-lcd.print("Fingerprint scan");
-lcd.setCursor(0,1);
-lcd.print("=");
-delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");delay(250);
-lcd.print("=");
-lcd.clear();
-lcd.print("Completed!");
+
+lcd.print("Checking!");
 lcd.setCursor(0,1);
 lcd.print("awaiting answer..");
 delay(2000);

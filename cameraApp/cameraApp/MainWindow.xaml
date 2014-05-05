@@ -23,6 +23,7 @@
                 <Label Content="Focus"/>
                 <Slider x:Name="focus" Minimum="0" Maximum="9999" ValueChanged="focus_ValueChanged"/>
                 <CheckBox Name="chkAutoFocus" IsChecked="True" Unchecked="chkAutoFocus_Unchecked" Checked="chkAutoFocus_Checked" Content="Autofocus"/>
+                <CheckBox Name="chkAutoWatch" IsChecked="True" Content="AutoWatch"/>
 
             </UniformGrid>
 
