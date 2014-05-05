@@ -18,6 +18,7 @@ using System.Drawing;
 using System.Windows.Threading;
 using System.Globalization;
 using System.IO.Ports;
+using System.ComponentModel;
 
 namespace cameraApp
 {
@@ -29,6 +30,9 @@ namespace cameraApp
         private DispatcherTimer tmr = new DispatcherTimer();
         private DispatcherTimer tmrInactivity = new DispatcherTimer();
         private DispatcherTimer tmrMove = new DispatcherTimer();
+        private DispatcherTimer tmrser = new DispatcherTimer();
+
+        private BackgroundWorker leesSerial = new BackgroundWorker();
 
         public static SerialPort verbinding = new SerialPort();
 
@@ -40,6 +44,7 @@ namespace cameraApp
         {
             InitializeComponent();
             InitSerial();
+
         }
 
         public void InitSerial()
@@ -72,10 +77,10 @@ namespace cameraApp
         {
             string command = verbinding.ReadExisting();
             Console.WriteLine(command);
-            if (command == "buttonpress")
-            {
+            //if (command == "buttonpress")
+            //{
                 MessageBox.Show("Somebody is standing in front of the door. Would you like to let him in?", "DING DONG", MessageBoxButton.YesNo, MessageBoxImage.None);
-            }
+            //}
 
         }
 
@@ -90,12 +95,40 @@ namespace cameraApp
             tmr.Tick += tmr_Tick;
             tmr.Start();
 
+            //tmrser.Interval = TimeSpan.FromSeconds(1);
+            //tmrser.Tick += tmrser_Tick;
+            //tmrser.Start();
+
             tmrInactivity.Interval = TimeSpan.FromSeconds(5);
             tmrInactivity.Tick += tmrInactivity_Tick;
             tmrInactivity.Start();
 
             tmrMove.Interval = TimeSpan.FromSeconds(1);
             tmrMove.Tick += tmrMove_Tick;
+
+            leesSerial.WorkerSupportsCancellation = true;
+            leesSerial.WorkerReportsProgress = true;
+            leesSerial.DoWork += leesSerial_DoWork;
+            //leesSerial.RunWorkerAsync();
+        }
+
+        //void tmrser_Tick(object sender, EventArgs e)
+        //{
+        //    byte[] arrOutput = new byte[20];
+        //    verbinding.Read(arrOutput, 0, 20);
+        //    string str = System.Text.Encoding.Default.GetString(arrOutput);
+        //    Console.WriteLine(str);
+        //}
+
+        void leesSerial_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (!e.Cancel)
+            {
+                byte[] arrOutput = new byte[20];
+                verbinding.Read(arrOutput, 0, 20);
+                string str = System.Text.Encoding.Default.GetString(arrOutput);
+                Console.WriteLine(str);
+            }
         }
 
         void tmrMove_Tick(object sender, EventArgs e)
@@ -120,11 +153,7 @@ namespace cameraApp
         {
             updateImg();
 
-            //seriele poort
-            byte[] arrOutput = new byte[20];
-            verbinding.Read(arrOutput, 0, 20);
-            string str = System.Text.Encoding.Default.GetString(arrOutput);
-            Console.WriteLine(str);
+          
         }
 
         private void updateImg()
@@ -201,6 +230,8 @@ namespace cameraApp
             resp2.Dispose();
 
         }
+          
+            
 
         #region Commands
 
